@@ -1,0 +1,48 @@
+Ejercicio 1.2:
+
+docker volume create datos-examen
+
+docker run -d \
+  --name db-examen \
+  -e POSTGRES_PASSWORD=examen123 \
+  -e POSTGRES_DB=testdb \
+  -v datos-examen:/var/lib/postgresql/data \
+  -p 5432:5432 \
+  postgres:15-alpine
+
+docker exec -it db-examen psql -U postgres -d testdb
+
+CREATE TABLE prueba(id SERIAL PRIMARY KEY, nombre TEXT);
+INSERT INTO prueba(nombre) VALUES ('Andres'), ('Maria');
+SELECT * FROM prueba;
+
+
+docker ps
+
+docker logs db-examen
+
+docker stop db-examen
+
+docker rm db-examen
+
+
+docker run -d \
+  --name db-examen \
+  -e POSTGRES_PASSWORD=examen123 \
+  -e POSTGRES_DB=testdb \
+  -v datos-examen:/var/lib/postgresql/data \
+  -p 5432:5432 \
+  postgres:15-alpine
+
+
+docker exec -it db-examen psql -U postgres -d testdb
+
+SELECT * FROM prueba;
+
+
+
+
+Evidencias:
+https://i.imgur.com/Xv7JE7e.png
+https://i.imgur.com/77vETlK.png
+https://i.imgur.com/teJovR2.png

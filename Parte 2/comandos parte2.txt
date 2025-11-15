@@ -1,0 +1,21 @@
+Parte 2:
+
+docker build -t mi-app-python:examen .
+
+docker run -d --name app-examen -p 5000:5000 mi-app-python:examen
+
+docker ps
+
+
+# Probando ambos endpoints
+
+curl http://localhost:5000/
+
+curl http://localhost:5000/salud
+
+
+Verificar Healthcheck
+
+docker ps
+
+docker inspect --format='{{json .State.Health}}' app-examen

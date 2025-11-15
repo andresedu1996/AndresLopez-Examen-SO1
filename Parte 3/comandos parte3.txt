@@ -1,0 +1,27 @@
+Parte 3:
+
+docker-compose up -d --build
+
+docker-compose ps
+
+Prueba API:
+curl http://localhost:3000/
+
+curl http://localhost:3000/salud
+
+
+Prueba web:
+curl http://localhost:8080/
+
+Prueba Logs:
+docker-compose logs
+
+docker-compose logs -f api
+
+docker-compose logs -f web
+
+docker-compose logs -f db
+
+
+
+docker-compose down
